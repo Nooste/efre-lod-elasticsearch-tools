@@ -298,6 +298,7 @@ mapping = {
           "isbd:P1053":{getProperty:"physical"},
           "language":{getLanguage:"language"},
           "dct:isPartOf":{getIsPartOf:"hierarchy_top_id"},
+          "dct:isPartOf":{getIsPartOf:"hierarchy_parent_id"}
           "dct:bibliographicCitation":{getProperty:["container_title","container_reference"]},
           "rdfs:ch_type":{getFormatRdfType:"format_finc"},
           "dct:medium":{getFormatDctMedium:"format_finc"},
