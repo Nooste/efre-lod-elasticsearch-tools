@@ -627,12 +627,16 @@ context = {
     },
     "openAccessContent": "http://dbpedia.org/ontology/openAccessContent",
 }
-
+"""
+für language bitte den fullrecord parsen und den Inhalt von 041a abgreifen. Das sind die Marc-Language-Tags. Als Wert dann URI erzeugen, z.B. 
+http://id.loc.gov/vocabulary/iso639-2/ger.html 
+Das ist eher Linked Data, damit wird sowohl das englischsprachige als auch das deutschsprachige Label nutzbar.
+"""
 
 mapping = {
     "@context": putContext,
     "@id": {getAtID: "id"},
-    "identifier": {getIDs: ["swb_id_str", "kxp_id_str"]},
+    "identifier": {getIDs: ["kxp_id_str"]},
     "bibo:issn": {getProperty: "issn"},
     "bibo:isbn": {getProperty: "isbn"},
     "umbel:isLike": {getProperty: "url"},
@@ -650,7 +654,7 @@ mapping = {
     "rdau:P60489": {getProperty: "dissertation_note"},
     "isbd:P1053": {getProperty: "physical"},
     "language": {getLanguage: "language"},
-    "dct:isPartOf": {getIsPartOf: "hierarchy_top_id"},
+    "dct:isPartOf": {getIsPartOf: "hierarchy_parent_id"},
     "dct:bibliographicCitation": {getProperty: ["container_title", "container_reference"]},
     "rdfs:ch_type": {getFormatRdfType: "format_finc"},
     "dct:medium": {getFormatDctMedium: "format_finc"},
